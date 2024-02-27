@@ -26,6 +26,15 @@ app.get('/get',async(req,res)=>{
         console.log(err.message)
     }
 })
+app.get('/get/:id',async(req,res)=>{
+    try{
+        const newData=await Products.find();
+        res.json(newData);
+    }
+    catch(err){
+        console.log(err.message)
+    }
+})
 app.delete('/delete/:id',async (req,res)=>{
     try{
         await Products.findByIdAndDelete(req.params.id);
